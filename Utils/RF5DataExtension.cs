@@ -111,14 +111,62 @@ namespace RF5.HisaCat.NPCDetails.Utils
             day = -1;
             return false;
         }
-        //public static string GetPlaceName(Define.Place place)
-        //{
-        //    //if (place == Define.Place.None || place == Define.Place.MAX)
-        //    //    return string.Empty;
-        //    if (AreaManager.PlaceToFieldPlaceId.ContainsKey(place) == false)
-        //        return string.Empty;
 
-        //    return null;
-        //}
+        public static string GetLocalizedPlaceName(Define.Place place)
+        {
+            switch (place)
+            {
+                case Define.Place.Police:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_01_Lv1_police);
+                case Define.Place.Hospital:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_02_Hospital);
+                case Define.Place.BlackSmith:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_03_Blacksmith);
+                case Define.Place.Shop:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_04_Shop);
+                case Define.Place.Restaurant:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_05_Restaurant_2);
+                case Define.Place.Hotel:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_06_Hotel);
+                case Define.Place.Bakery:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_07_Bakery);
+                case Define.Place.Carpenter:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_08_Carpenter);
+                case Define.Place.Detective:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_09_Detective);
+                case Define.Place.CrystalShop:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_10_CrystalShop);
+                case Define.Place.Monsterhut:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_11_Monsterhut);
+                case Define.Place.FlowerShop:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_13_FlowerShop);
+                case Define.Place.Relics:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_14_Relics);
+                case Define.Place.Home1:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_17_home01);
+                case Define.Place.Home2:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_18_home02);
+                case Define.Place.Home3:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_19_home03);
+                case Define.Place.Home4:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_20_home04);
+
+                #region Unknowns
+                case Define.Place.FreeHome:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_RF5Room_21_home_empty);
+                case Define.Place.Beach:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.NIGHT_BEACH);
+                case Define.Place.Lake:
+                case Define.Place.Dungeon1:
+                case Define.Place.BigTreePlaza:
+                case Define.Place.Bridge:
+                case Define.Place.Field:
+                    return $"{SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_FIELD_Town)} ({place.ToString()})";
+                case Define.Place.None:
+                default:
+                    return $"({place.ToString()})";
+                #endregion Unknowns
+            }
+        }
     }
 }
