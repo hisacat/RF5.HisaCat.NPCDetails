@@ -122,6 +122,7 @@ namespace RF5.HisaCat.NPCDetails
 
             if (detailTextDic.ContainsKey(npcData.actorId) == false)
             {
+                var text_Birthday = "Birthday";
                 var text_Loves = "Loves";
                 var text_Likes = "Likes";
                 var text_Dislikes = "Dislikes";
@@ -146,6 +147,8 @@ namespace RF5.HisaCat.NPCDetails
                 if (textsIni.TryGetSection(lang, out iniSection))
                 {
                     IniValue iniValue = default;
+                    if (iniSection.TryGetValue("TEXT_BIRTHDAY", out iniValue))
+                        text_Birthday = iniValue.GetString();
                     if (iniSection.TryGetValue("TEXT_LOVES", out iniValue))
                         text_Loves = iniValue.GetString();
                     if (iniSection.TryGetValue("TEXT_LIKES", out iniValue))
@@ -156,14 +159,31 @@ namespace RF5.HisaCat.NPCDetails
                         text_Hates = iniValue.GetString();
                 }
 
+                var text = string.Empty;
+
                 Define.Season birthday_season;
                 int birthday_day;
                 if (npcData.TryFindNPCBirthday(out birthday_season, out birthday_day))
                 {
-                    //...
+                    var birthdayText = string.Empty;
+                    switch (birthday_season)
+                    {
+                        case Define.Season.Spring:
+                            birthdayText = $"{SV.UIRes.GetSystemText(UITextDic.DICID.HUDCLOCK_SPRING)} {birthday_day}";
+                            break;
+                        case Define.Season.Summer:
+                            birthdayText = $"{SV.UIRes.GetSystemText(UITextDic.DICID.HUDCLOCK_SUMMER)} {birthday_day}";
+                            break;
+                        case Define.Season.Autumn:
+                            birthdayText = $"{SV.UIRes.GetSystemText(UITextDic.DICID.HUDCLOCK_AUTUMN)} {birthday_day}";
+                            break;
+                        case Define.Season.Winter:
+                            birthdayText = $"{SV.UIRes.GetSystemText(UITextDic.DICID.HUDCLOCK_WINTER)} {birthday_day}";
+                            break;
+                    }
+                    text += $"<size=25>{text_Birthday}:</size> {birthdayText}\r\n\r\n";
                 }
 
-                var text = string.Empty;
                 text += $"<size=25>{text_Loves}</size>\r\n{string.Join(", ", npcData.GetVeryFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
                 text += $"<size=25>{text_Likes}</size>\r\n{string.Join(", ", npcData.GetFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
                 text += $"<size=25>{text_Dislikes}</size>\r\n{string.Join(", ", npcData.GetNotFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
