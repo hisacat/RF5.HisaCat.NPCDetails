@@ -156,6 +156,13 @@ namespace RF5.HisaCat.NPCDetails
                         text_Hates = iniValue.GetString();
                 }
 
+                Define.Season birthday_season;
+                int birthday_day;
+                if (npcData.TryFindNPCBirthday(out birthday_season, out birthday_day))
+                {
+                    //...
+                }
+
                 var text = string.Empty;
                 text += $"<size=25>{text_Loves}</size>\r\n{string.Join(", ", npcData.GetVeryFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
                 text += $"<size=25>{text_Likes}</size>\r\n{string.Join(", ", npcData.GetFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";

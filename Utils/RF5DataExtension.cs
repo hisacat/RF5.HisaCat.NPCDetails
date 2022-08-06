@@ -90,6 +90,27 @@ namespace RF5.HisaCat.NPCDetails.Utils
             if (npcData.statusData == null) return new List<ItemDataTable>();
             return ItemIdArrayToItemDataTables(npcData.statusData.NotFavoriteBadlyItem);
         }
+
+        public static bool TryFindNPCBirthday(this NpcData npcData, out Define.Season season, out int day)
+        {
+            return TryFindNPCBirthday(npcData.NpcId, out season, out day);
+        }
+        public static bool TryFindNPCBirthday(int npcID, out Define.Season season, out int day)
+        {
+            for (season = Define.Season.Spring; season <= Define.Season.Winter; season++)
+            {
+                for (day = 1; day <= 30; day++)
+                {
+                    if (NpcDataManager.Instance.LovePointManager.IsBirthDayByDate(npcID, season, day))
+                    {
+                        return true;
+                    }
+                }
+            }
+            season = Define.Season.None;
+            day = -1;
+            return false;
+        }
         //public static string GetPlaceName(Define.Place place)
         //{
         //    //if (place == Define.Place.None || place == Define.Place.MAX)
