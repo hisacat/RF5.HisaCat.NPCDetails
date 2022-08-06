@@ -9,3 +9,7 @@ This mod displays NPC's details like favorite gifts etc
 or install other base mod BepInEx already included (like [RF5Fix mod](https://github.com/Lyall/RF5Fix))
 2. Get [Latest Release](https://github.com/hisacat/RF5.HisaCat.NPCDetails/releases)
 3. Extract the contents of downloaded zip into `<GameDirectory>\BepInEx\plugins`. 
+
+## Mirrors
+
+* [Nexus Mods](https://www.nexusmods.com/runefactory5/mods/34)
