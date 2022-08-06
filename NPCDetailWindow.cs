@@ -138,12 +138,22 @@ namespace RF5.HisaCat.NPCDetails
                     else
                     {
                         textsIni.Load(textsIniPath);
-                        var lang = BootSystem.OptionData.SystemLanguage.ToString();
-                        text_Loves = textsIni[lang]["TEXT_LOVES"].GetString();
-                        text_Likes = textsIni[lang]["TEXT_LIKES"].GetString();
-                        text_Dislikes = textsIni[lang]["TEXT_DISLIKES"].GetString();
-                        text_Hates = textsIni[lang]["TEXT_HATES"].GetString();
                     }
+                }
+
+                var lang = BootSystem.OptionData.SystemLanguage.ToString();
+                IniSection iniSection = null;
+                if (textsIni.TryGetSection(lang, out iniSection))
+                {
+                    IniValue iniValue = default;
+                    if (iniSection.TryGetValue("TEXT_LOVES", out iniValue))
+                        text_Loves = iniValue.GetString();
+                    if (iniSection.TryGetValue("TEXT_LIKES", out iniValue))
+                        text_Likes = iniValue.GetString();
+                    if (iniSection.TryGetValue("TEXT_DISLIKES", out iniValue))
+                        text_Dislikes = iniValue.GetString();
+                    if (iniSection.TryGetValue("TEXT_HATES", out iniValue))
+                        text_Hates = iniValue.GetString();
                 }
 
                 var text = string.Empty;
