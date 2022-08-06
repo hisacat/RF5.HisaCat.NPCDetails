@@ -75,6 +75,7 @@ namespace RF5.HisaCat.NPCDetails.Utils
                         case ItemID.Item_Akikan: //빈 캔(1900)
                         case ItemID.Item_Nagagutsu: //장화(1901)
                         case ItemID.Item_Reanaakikan: //희귀한 빈 캔(1902)
+                            return false;
                         default:
                             return true;
                     }
