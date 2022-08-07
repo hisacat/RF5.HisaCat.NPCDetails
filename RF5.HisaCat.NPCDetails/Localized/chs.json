@@ -19,6 +19,22 @@
     {
       "key": "TEXT_HATES",
       "text": "Hates"
+    },
+    {
+      "key": "TIPS_TALK_TODAY",
+      "text": "Talked today"
+    },
+    {
+      "key": "TIPS_WAS_PRESENT",
+      "text": "Gift delivered"
+    },
+    {
+      "key": "TIPS_BIRTHDAY_LEFT",
+      "text": "{0} days left until birthday"
+    },
+    {
+      "key": "TIPS_BIRTHDAY_TODAY",
+      "text": "Is birthday today!"
     }
   ]
 }

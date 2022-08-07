@@ -1,5 +1,8 @@
 ﻿# Release notes
 
+## v1.1.1
+- Localized text resources now managed with json. files placed under `<NPCDetailsDirectory>\Localized`. 
+
 ## v1.1.0
 - Support controllers (for scrolling, RF5 native inputs)
 

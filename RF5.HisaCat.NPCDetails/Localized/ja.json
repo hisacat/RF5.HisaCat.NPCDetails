@@ -19,6 +19,22 @@
     {
       "key": "TEXT_HATES",
       "text": "大嫌いなもの"
+    },
+    {
+      "key": "TIPS_TALK_TODAY",
+      "text": "今日お話し"
+    },
+    {
+      "key": "TIPS_WAS_PRESENT",
+      "text": "プレセント"
+    },
+    {
+      "key": "TIPS_BIRTHDAY_LEFT",
+      "text": "誕生日まで{0}日"
+    },
+    {
+      "key": "TIPS_BIRTHDAY_TODAY",
+      "text": "今日誕生日です!"
     }
   ]
 }
