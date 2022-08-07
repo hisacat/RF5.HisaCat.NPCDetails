@@ -162,6 +162,10 @@ namespace RF5.HisaCat.NPCDetails
                 text += $"<size=25>{text_Dislikes}</size>\r\n{string.Join(", ", npcData.GetNotFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
                 text += $"<size=25>{text_Hates}</size>\r\n{string.Join(", ", npcData.GetNotFavoriteBadlyItemDataTables().Select(x => $"{x.GetItemName()}"))}";
 
+                //https://www.nexusmods.com/runefactory5/mods/34?tab=bugs
+                //Hotfix for 'Text cut off' bugs
+                text += "\r\n";
+
                 detailTextDic.Add(npcData.actorId, text);
             }
             return detailTextDic[npcData.actorId];
