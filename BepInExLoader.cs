@@ -18,7 +18,7 @@ namespace RF5.HisaCat.NPCDetails
             MODNAME = "NPCDetails",
             AUTHOR = "HisaCat",
             GUID = "RF5." + AUTHOR + "." + MODNAME,
-            VERSION = "1.0.1";
+            VERSION = "1.1.0";
 
         public static BepInEx.Logging.ManualLogSource log;
 
