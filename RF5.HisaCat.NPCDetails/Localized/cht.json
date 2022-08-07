@@ -1,0 +1,24 @@
+{
+  "datas": [
+    {
+      "key": "TEXT_BIRTHDAY",
+      "text": "生日"
+    },
+    {
+      "key": "TEXT_LOVES",
+      "text": "Loves"
+    },
+    {
+      "key": "TEXT_LIKES",
+      "text": "Likes"
+    },
+    {
+      "key": "TEXT_DISLIKES",
+      "text": "Dislikes"
+    },
+    {
+      "key": "TEXT_HATES",
+      "text": "Hates"
+    }
+  ]
+}

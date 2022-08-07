@@ -60,6 +60,7 @@ namespace RF5.HisaCat.NPCDetails
             [HarmonyPostfix]
             private static void CreateUIResPostfix(SV __instance)
             {
+                //Localization.LocalizedString.CreateTemplate();
                 if (BundleLoader.MainBundle == null)
                     BundleLoader.LoadBundle();
             }

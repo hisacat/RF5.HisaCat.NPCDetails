@@ -1,0 +1,24 @@
+{
+  "datas": [
+    {
+      "key": "TEXT_BIRTHDAY",
+      "text": "생일"
+    },
+    {
+      "key": "TEXT_LOVES",
+      "text": "매우 좋아하는 것"
+    },
+    {
+      "key": "TEXT_LIKES",
+      "text": "좋아하는 것"
+    },
+    {
+      "key": "TEXT_DISLIKES",
+      "text": "싫어하는 것"
+    },
+    {
+      "key": "TEXT_HATES",
+      "text": "매우 싫어하는 것"
+    }
+  ]
+}

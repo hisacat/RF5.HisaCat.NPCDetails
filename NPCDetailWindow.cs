@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using RF5.HisaCat.NPCDetails.Utils;
+using RF5.HisaCat.NPCDetails.Localization;
 using BepInEx;
 
 namespace RF5.HisaCat.NPCDetails
@@ -118,7 +119,6 @@ namespace RF5.HisaCat.NPCDetails
         }
 
         private static Dictionary<Define.ActorID, string> detailTextDic = null;
-        private static IniFile textsIni = null;
         private static string GetDetailText(NpcData npcData)
         {
             if (detailTextDic == null)
@@ -126,42 +126,11 @@ namespace RF5.HisaCat.NPCDetails
 
             if (detailTextDic.ContainsKey(npcData.actorId) == false)
             {
-                var text_Birthday = "Birthday";
-                var text_Loves = "Loves";
-                var text_Likes = "Likes";
-                var text_Dislikes = "Dislikes";
-                var text_Hates = "Hates";
-
-                if (textsIni == null)
-                {
-                    textsIni = new IniFile();
-                    var textsIniPath = System.IO.Path.Combine(System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID), "texts.ini");
-                    if (System.IO.File.Exists(textsIniPath) == false)
-                    {
-                        BepInExLog.LogWarning($"Cannot find Texts INI file at {textsIniPath}. use en default");
-                    }
-                    else
-                    {
-                        textsIni.Load(textsIniPath);
-                    }
-                }
-
-                var lang = BootSystem.OptionData.SystemLanguage.ToString();
-                IniSection iniSection = null;
-                if (textsIni.TryGetSection(lang, out iniSection))
-                {
-                    IniValue iniValue = default;
-                    if (iniSection.TryGetValue("TEXT_BIRTHDAY", out iniValue))
-                        text_Birthday = iniValue.GetString();
-                    if (iniSection.TryGetValue("TEXT_LOVES", out iniValue))
-                        text_Loves = iniValue.GetString();
-                    if (iniSection.TryGetValue("TEXT_LIKES", out iniValue))
-                        text_Likes = iniValue.GetString();
-                    if (iniSection.TryGetValue("TEXT_DISLIKES", out iniValue))
-                        text_Dislikes = iniValue.GetString();
-                    if (iniSection.TryGetValue("TEXT_HATES", out iniValue))
-                        text_Hates = iniValue.GetString();
-                }
+                var text_Birthday = LocalizationManager.Load("TEXT_BIRTHDAY");
+                var text_Loves = LocalizationManager.Load("TEXT_LOVES");
+                var text_Likes = LocalizationManager.Load("TEXT_LIKES");
+                var text_Dislikes = LocalizationManager.Load("TEXT_DISLIKES");
+                var text_Hates = LocalizationManager.Load("TEXT_HATES");
 
                 var text = string.Empty;
 

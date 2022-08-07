@@ -128,7 +128,7 @@
     <Compile Include="BepInExLoader.cs" />
     <Compile Include="BepInExLog.cs" />
     <Compile Include="BundleLoader.cs" />
-    <Compile Include="Ini.cs" />
+    <Compile Include="Localization\LocalizationManager.cs" />
     <Compile Include="NPCDetailWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\RF5DataExtension.cs" />
@@ -137,10 +137,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="RF5.HisaCat.NPCDetails\npcdetails.main.unity3d">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\chs.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\texts.ini">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\cht.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\Localized\de.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\Localized\en.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\Localized\fr.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\Localized\ja.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\Localized\ko.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RF5.HisaCat.NPCDetails\npcdetails.main.unity3d">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
