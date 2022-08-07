@@ -136,7 +136,9 @@
     <Compile Include="Utils\SimilarItemGroup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CHANGES.md" />
     <None Include="packages.config" />
+    <None Include="README.md" />
     <None Include="RF5.HisaCat.NPCDetails\Localized\chs.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
