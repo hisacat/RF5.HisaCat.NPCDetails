@@ -75,6 +75,9 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Rune Factory 5\BepInEx\core\Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -133,6 +136,7 @@
     <Compile Include="Utils\SimilarItemGroup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="RF5.HisaCat.NPCDetails\npcdetails.main.unity3d">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
