@@ -100,21 +100,21 @@ namespace RF5.HisaCat.NPCDetails
         {
             this.detailText.text = GetDetailText(npcData);
 
+            //bool wasTodayTalked = npcData.TodayTalkCount > 0;
 
-            bool wasTodayTalked = npcData.TodayTalkCount > 0;
+            //var presentItemTypesArray = npcData.PresentItemTypes.ToArray();
+            //bool wasPresentVeryFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.VeryFavorite);
+            //bool wasPresentFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Favorite);
+            //bool wasPresentNormal = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Normal);
+            //bool wasPresentNotFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavorite);
+            //bool wasPresentNotFavoriteBadly = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavoriteBadly);
 
-            var presentItemTypesArray = npcData.PresentItemTypes.ToArray();
-            bool wasPresentVeryFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.VeryFavorite);
-            bool wasPresentFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Favorite);
-            bool wasPresentNormal = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Normal);
-            bool wasPresentNotFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavorite);
-            bool wasPresentNotFavoriteBadly = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavoriteBadly);
-
-            BepInExLog.LogError($"wasPresentVeryFavorite: {wasPresentVeryFavorite}");
-            BepInExLog.LogError($"wasPresentFavorite: {wasPresentFavorite}");
-            BepInExLog.LogError($"wasPresentNormal: {wasPresentNormal}");
-            BepInExLog.LogError($"wasPresentNotFavorite: {wasPresentNotFavorite}");
-            BepInExLog.LogError($"wasPresentNotFavoriteBadly: {wasPresentNotFavoriteBadly}\r\n");
+            //BepInExLog.Log($"wasPresentVeryFavorite: {wasTodayTalked}");
+            //BepInExLog.Log($"wasPresentVeryFavorite: {wasPresentVeryFavorite}");
+            //BepInExLog.Log($"wasPresentFavorite: {wasPresentFavorite}");
+            //BepInExLog.Log($"wasPresentNormal: {wasPresentNormal}");
+            //BepInExLog.Log($"wasPresentNotFavorite: {wasPresentNotFavorite}");
+            //BepInExLog.Log($"wasPresentNotFavoriteBadly: {wasPresentNotFavoriteBadly}\r\n");
         }
 
         private static Dictionary<Define.ActorID, string> detailTextDic = null;
