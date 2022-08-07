@@ -13,7 +13,6 @@ namespace RF5.HisaCat.NPCDetails
     internal class NPCDetailWindow : MonoBehaviour
     {
         private Transform window = null;
-        private ScrollRect scrollRect = null;
         private Text detailText = null;
 
         private static UIOnOffAnimate equipMenuItemDetail = null;
@@ -65,22 +64,16 @@ namespace RF5.HisaCat.NPCDetails
                     Destroy(NPCDetailWindow.Instance.gameObject);
                     return false;
                 }
-                NPCDetailWindow.Instance.scrollRect = windowInstanceGO.FindComponent<ScrollRect>("Window/Scroll View");
-                if (NPCDetailWindow.Instance.scrollRect == null)
-                {
-                    BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find scrollRect");
-                    Destroy(NPCDetailWindow.Instance.gameObject);
-                    return false;
-                }
-                NPCDetailWindow.Instance.detailText = windowInstanceGO.FindComponent<Text>("Window/Scroll View/Viewport/Content/Text");
+                NPCDetailWindow.Instance.detailText = windowInstanceGO.FindComponent<Text>("Window/TextArea/Mask/Text");
                 if (NPCDetailWindow.Instance.detailText == null)
                 {
                     BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find detailText");
                     Destroy(NPCDetailWindow.Instance.gameObject);
                     return false;
                 }
-
             }
+
+            //Check "/StartUI/UIMainManager/UIMainCanvas(Clone)/MainWindowCanvas/CampUI/CampMenuObject/CenterMenu/FriendlyMenu/NPCPage(Clone)/StatusObj/FriendsStatus/DiscriptionBoard" for support controllers
 
             return true;
         }
@@ -103,11 +96,6 @@ namespace RF5.HisaCat.NPCDetails
         {
             return this.gameObject.activeSelf;
         }
-
-        public void ResetScroll()
-        {
-            this.scrollRect.verticalNormalizedPosition = 1;
-        }
         public void SetNPCData(NpcData npcData)
         {
             this.detailText.text = GetDetailText(npcData);
@@ -122,6 +110,11 @@ namespace RF5.HisaCat.NPCDetails
             bool wasPresentNotFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavorite);
             bool wasPresentNotFavoriteBadly = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavoriteBadly);
 
+            BepInExLog.LogError($"wasPresentVeryFavorite: {wasPresentVeryFavorite}");
+            BepInExLog.LogError($"wasPresentFavorite: {wasPresentFavorite}");
+            BepInExLog.LogError($"wasPresentNormal: {wasPresentNormal}");
+            BepInExLog.LogError($"wasPresentNotFavorite: {wasPresentNotFavorite}");
+            BepInExLog.LogError($"wasPresentNotFavoriteBadly: {wasPresentNotFavoriteBadly}\r\n");
         }
 
         private static Dictionary<Define.ActorID, string> detailTextDic = null;

@@ -129,15 +129,8 @@ namespace RF5.HisaCat.NPCDetails
                 if (NPCDetailWindow.Instance != null)
                 {
                     NPCDetailWindow.Instance.SetShown(true);
-                    NPCDetailWindow.Instance.ResetScroll();
-
                     var npcData = NpcDataManager.Instance.GetNpcData(__instance.actorId);
                     NPCDetailWindow.Instance.SetNPCData(npcData);
-
-                    //for (var place = Define.Place.Police; place <= Define.Place.Beach; place++)
-                    //{
-                    //    BepInExLog.LogError($"{place.ToString()} -> {RF5DataExtension.GetLocalizedPlaceName(place)}");
-                    //}
 
                     return;
                 }
