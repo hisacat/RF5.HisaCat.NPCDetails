@@ -17,7 +17,7 @@ namespace RF5.HisaCat.NPCDetails
         {
             if (MainBundle != null)
             {
-                BepInExLog.Log("BundleLoader: Bundle already loaded");
+                BepInExLog.LogDebug("BundleLoader: Bundle already loaded");
                 return true;
             }
             var bundleDir = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID);
@@ -36,7 +36,7 @@ namespace RF5.HisaCat.NPCDetails
                 return false;
             }
 
-            BepInExLog.Log("BundleLoader: Bundle loaded.");
+            BepInExLog.LogDebug("BundleLoader: Bundle loaded.");
             return true;
         }
 

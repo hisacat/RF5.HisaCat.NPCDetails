@@ -8,7 +8,11 @@ namespace RF5.HisaCat.NPCDetails
 {
     internal static class BepInExLog
     {
-        public static void Log(object obj)
+        public static void LogDebug(object obj)
+        {
+            BepInExLoader.log.LogDebug($"[{BepInExLoader.GUID}] {obj.ToString()}");
+        }
+        public static void LogMessage(object obj)
         {
             BepInExLoader.log.LogMessage($"[{BepInExLoader.GUID}] {obj.ToString()}");
         }

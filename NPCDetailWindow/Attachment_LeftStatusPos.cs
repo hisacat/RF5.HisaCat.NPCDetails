@@ -100,7 +100,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         {
             if (Instance != null)
             {
-                BepInExLog.Log("[Attachment_LeftStatusPos] InstantiateAndAttach: instance already exist");
+                BepInExLog.LogDebug("[Attachment_LeftStatusPos] InstantiateAndAttach: instance already exist");
                 return true;
             }
 
@@ -134,6 +134,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
                 return false;
             }
 
+            BepInExLog.LogDebug("[Attachment_LeftStatusPos] Attached");
             return true;
         }
 
@@ -155,6 +156,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         {
             if (Instance == this)
             {
+                BepInExLog.LogDebug("[Attachment_LeftStatusPos] Destroyed");
                 Instance = null;
                 return;
             }
