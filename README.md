@@ -13,3 +13,14 @@ or install other base mod BepInEx already included (like [RF5Fix mod](https://gi
 ## Mirrors
 
 * [Nexus Mods](https://www.nexusmods.com/runefactory5/mods/34)
+
+## Contributing
+
+You can help translating this mod on Crowdin
+(Source language is English)
+
+[![Crowdin](https://badges.crowdin.net/rf5-npc-details/localized.svg)](https://crowdin.com/project/rf5-npc-details)
+
+## Changes
+
+See [CHANGES.md](https://github.com/hisacat/RF5.HisaCat.NPCDetails/blob/main/CHANGES.md)
