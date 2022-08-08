@@ -1,11 +1,11 @@
 {
   "detail.title.birthday": "生日",
-  "detail.title.loves": "Loves",
-  "detail.title.likes": "Likes",
-  "detail.title.dislikes": "Dislikes",
-  "detail.title.hates": "Hates",
-  "tips.title.talk_today": "Talked today",
-  "tips.title.was_present": "Gift delivered",
-  "tips.title.birthday_left": "{0} days left until birthday",
-  "tips.title.birthday_today": "Is birthday today!"
+  "detail.title.loves": "最喜欢的东西",
+  "detail.title.likes": "喜欢的东西",
+  "detail.title.dislikes": "讨厌的东西",
+  "detail.title.hates": "最讨厌的东西",
+  "tips.title.talk_today": "今日已问候",
+  "tips.title.was_present": "今日已送礼",
+  "tips.title.birthday_left": "距离生日还有{0} 天",
+  "tips.title.birthday_today": "今天是ta的生日！"
 }
