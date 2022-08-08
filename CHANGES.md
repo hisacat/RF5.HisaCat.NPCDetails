@@ -1,5 +1,9 @@
 ﻿# Release notes
 
+## v1.1.2
+- Localized text resources (json) structure optimized
+- Support [crowdin](https://crowdin.com/project/rf5-npc-details)
+
 ## v1.1.1
 - Hotfix 'text cut off' bug
 - Localized text resources now managed with json. files placed under `<NPCDetailsDirectory>\Localized`. 

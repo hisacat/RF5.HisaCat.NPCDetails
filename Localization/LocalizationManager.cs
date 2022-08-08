@@ -31,24 +31,24 @@ namespace RF5.HisaCat.NPCDetails.Localization
 
     internal class LocalizedString
     {
-        public static string GetLangCode(BootOption.SystemLanguage lang)
+        public static string GetLocaleStr(BootOption.SystemLanguage lang)
         {
             switch (lang)
             {
                 case BootOption.SystemLanguage.English:
-                    return "en";
+                    return "en_US";
                 case BootOption.SystemLanguage.Japanese:
-                    return "ja";
+                    return "ja_JP";
                 case BootOption.SystemLanguage.ChineseSimplified:
-                    return "chs";
+                    return "zh_CN";
                 case BootOption.SystemLanguage.ChineseTraditional:
-                    return "cht";
+                    return "zh_TW";
                 case BootOption.SystemLanguage.Korean:
-                    return "ko";
+                    return "ko_KR";
                 case BootOption.SystemLanguage.French:
-                    return "fr";
+                    return "fr_FR";
                 case BootOption.SystemLanguage.Germen:
-                    return "de";
+                    return "de_DE";
                 default:
                     return string.Empty;
             }
@@ -63,7 +63,7 @@ namespace RF5.HisaCat.NPCDetails.Localization
 
             for (var lang = BootOption.SystemLanguage.English; lang <= BootOption.SystemLanguage.Germen; lang++)
             {
-                var path = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, $"{GetLangCode(lang)}.json");
+                var path = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, $"{GetLocaleStr(lang)}.json");
                 System.IO.File.WriteAllText(path, json);
             }
         }
@@ -84,11 +84,11 @@ namespace RF5.HisaCat.NPCDetails.Localization
             {
                 //Load.
                 var datas = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-                var curPath = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, this.Path, $"{GetLangCode(lang)}.json");
+                var curPath = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, this.Path, $"{GetLocaleStr(lang)}.json");
                 if (System.IO.File.Exists(curPath))
                 {
                     var json = System.IO.File.ReadAllText(curPath);
-                    datas = JsonConvert.DeserializeObject<Dictionary<string,string>>(json);
+                    datas = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                 }
                 this.dic.Add(lang, datas);
             }

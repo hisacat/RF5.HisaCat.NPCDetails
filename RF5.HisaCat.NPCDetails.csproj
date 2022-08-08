@@ -139,25 +139,25 @@
     <None Include="CHANGES.md" />
     <None Include="packages.config" />
     <None Include="README.md" />
-    <None Include="RF5.HisaCat.NPCDetails\Localized\chs.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\de_DE.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\cht.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\en_US.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\de.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\fr_FR.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\en.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\ja_JP.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\fr.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\ko_KR.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\ja.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\zh_CN.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RF5.HisaCat.NPCDetails\Localized\ko.json">
+    <None Include="RF5.HisaCat.NPCDetails\Localized\zh_TW.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="RF5.HisaCat.NPCDetails\npcdetails.main.unity3d">
