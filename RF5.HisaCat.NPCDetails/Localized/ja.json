@@ -1,40 +1,11 @@
 {
-  "datas": [
-    {
-      "key": "TEXT_BIRTHDAY",
-      "text": "誕生日"
-    },
-    {
-      "key": "TEXT_LOVES",
-      "text": "大好きなもの"
-    },
-    {
-      "key": "TEXT_LIKES",
-      "text": "好きなもの"
-    },
-    {
-      "key": "TEXT_DISLIKES",
-      "text": "嫌いなもの"
-    },
-    {
-      "key": "TEXT_HATES",
-      "text": "大嫌いなもの"
-    },
-    {
-      "key": "TIPS_TALK_TODAY",
-      "text": "今日お話し"
-    },
-    {
-      "key": "TIPS_WAS_PRESENT",
-      "text": "プレセント"
-    },
-    {
-      "key": "TIPS_BIRTHDAY_LEFT",
-      "text": "誕生日まで{0}日"
-    },
-    {
-      "key": "TIPS_BIRTHDAY_TODAY",
-      "text": "今日誕生日です!"
-    }
-  ]
+  "detail.title.birthday": "誕生日",
+  "detail.title.loves": "大好きなもの",
+  "detail.title.likes": "好きなもの",
+  "detail.title.dislikes": "嫌いなもの",
+  "detail.title.hates": "大嫌いなもの",
+  "tips.title.talk_today": "今日お話し",
+  "tips.title.was_present": "プレセント",
+  "tips.title.birthday_left": "誕生日まで{0}日",
+  "tips.title.birthday_today": "今日誕生日です!"
 }

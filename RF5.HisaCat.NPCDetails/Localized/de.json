@@ -1,40 +1,11 @@
 {
-  "datas": [
-    {
-      "key": "TEXT_BIRTHDAY",
-      "text": "Birthday"
-    },
-    {
-      "key": "TEXT_LOVES",
-      "text": "Loves"
-    },
-    {
-      "key": "TEXT_LIKES",
-      "text": "Likes"
-    },
-    {
-      "key": "TEXT_DISLIKES",
-      "text": "Dislikes"
-    },
-    {
-      "key": "TEXT_HATES",
-      "text": "Hates"
-    },
-    {
-      "key": "TIPS_TALK_TODAY",
-      "text": "Talked today"
-    },
-    {
-      "key": "TIPS_WAS_PRESENT",
-      "text": "Gift delivered"
-    },
-    {
-      "key": "TIPS_BIRTHDAY_LEFT",
-      "text": "{0} days left until birthday"
-    },
-    {
-      "key": "TIPS_BIRTHDAY_TODAY",
-      "text": "Is birthday today!"
-    }
-  ]
+  "detail.title.birthday": "Birthday",
+  "detail.title.loves": "Loves",
+  "detail.title.likes": "Likes",
+  "detail.title.dislikes": "Dislikes",
+  "detail.title.hates": "Hates",
+  "tips.title.talk_today": "Talked today",
+  "tips.title.was_present": "Gift delivered",
+  "tips.title.birthday_left": "{0} days left until birthday",
+  "tips.title.birthday_today": "Is birthday today!"
 }

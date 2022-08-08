@@ -126,11 +126,11 @@ namespace RF5.HisaCat.NPCDetails
 
             if (detailTextDic.ContainsKey(npcData.actorId) == false)
             {
-                var text_Birthday = LocalizationManager.Load("TEXT_BIRTHDAY");
-                var text_Loves = LocalizationManager.Load("TEXT_LOVES");
-                var text_Likes = LocalizationManager.Load("TEXT_LIKES");
-                var text_Dislikes = LocalizationManager.Load("TEXT_DISLIKES");
-                var text_Hates = LocalizationManager.Load("TEXT_HATES");
+                var text_Birthday = LocalizationManager.Load("detail.title.birthday");
+                var text_Loves = LocalizationManager.Load("detail.title.loves");
+                var text_Likes = LocalizationManager.Load("detail.title.likes");
+                var text_Dislikes = LocalizationManager.Load("detail.title.dislikes");
+                var text_Hates = LocalizationManager.Load("detail.title.hates");
 
                 var text = string.Empty;
 

@@ -55,14 +55,9 @@ namespace RF5.HisaCat.NPCDetails.Localization
         }
         public static void CreateTemplate()
         {
-            var data = new StringDataArray();
-            data.datas = new StringData[3];
+            var data = new Dictionary<string, string>();
             for (int i = 0; i < 3; i++)
-            {
-                data.datas[i] = new StringData();
-                data.datas[i].key = $"KEY{i}";
-                data.datas[i].text = "TEXT";
-            }
+                data.Add($"key{i}", "text");
 
             var json = JsonConvert.SerializeObject(data, Formatting.Indented);
 
@@ -88,26 +83,14 @@ namespace RF5.HisaCat.NPCDetails.Localization
             if (this.dic.ContainsKey(lang) == false)
             {
                 //Load.
-                var newDic = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+                var datas = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 var curPath = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, this.Path, $"{GetLangCode(lang)}.json");
                 if (System.IO.File.Exists(curPath))
                 {
                     var json = System.IO.File.ReadAllText(curPath);
-                    var datas = JsonConvert.DeserializeObject<StringDataArray>(json);
-                    foreach (var data in datas.datas)
-                    {
-                        if (newDic.ContainsKey(data.key))
-                        {
-                            BepInExLog.LogWarning($"Key {data} already exist! ({lang}) it will be ignored.");
-                            continue;
-                        }
-                        else
-                        {
-                            newDic.Add(data.key, data.text);
-                        }
-                    }
+                    datas = JsonConvert.DeserializeObject<Dictionary<string,string>>(json);
                 }
-                this.dic.Add(lang, newDic);
+                this.dic.Add(lang, datas);
             }
 
             if (this.dic[lang].ContainsKey(key))
@@ -121,15 +104,5 @@ namespace RF5.HisaCat.NPCDetails.Localization
                     return key;
             }
         }
-    }
-
-    internal class StringDataArray
-    {
-        public StringData[] datas = null;
-    }
-    internal class StringData
-    {
-        public string key = string.Empty;
-        public string text = string.Empty;
     }
 }
