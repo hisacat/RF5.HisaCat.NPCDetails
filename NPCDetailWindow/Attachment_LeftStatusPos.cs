@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using RF5.HisaCat.NPCDetails.Utils;
+using RF5.HisaCat.NPCDetails.Localization;
 
 namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 {
@@ -90,10 +91,19 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         }
 
         private FriendPageStatusDisp friendPageStatusDisp = null;
+        private string tips_BirthdayLeft_Text_Format = string.Empty;
         public bool Init(FriendPageStatusDisp friendPageStatusDisp)
         {
             this.friendPageStatusDisp = friendPageStatusDisp;
-            return PreloadPathes();
+            if (PreloadPathes() == false)
+                return false;
+
+            this.m_Tips_TodayTalked_Text.text = LocalizationManager.Load("tips.title.talk_today");
+            this.m_Tips_WasPresent_Text.text = LocalizationManager.Load("tips.title.was_present");
+            this.tips_BirthdayLeft_Text_Format = LocalizationManager.Load("tips.title.birthday_left");
+            this.m_Tips_Alert_BirthdayToday_Text.text = LocalizationManager.Load("tips.title.birthday_today");
+
+            return true;
         }
 
         public static bool InstantiateAndAttach(FriendPageStatusDisp friendPageStatusDisp)
@@ -149,7 +159,69 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 
         public void SetNPCData(NpcData npcData)
         {
+            this.m_Tips_TodayTalked_GO.SetActive(false);
+            this.m_Tips_WasPresent_GO.SetActive(false);
+            this.m_Tips_BirthdayLeft_GO.SetActive(false);
+            this.m_Tips_Alert_BirthdayToday_GO.SetActive(false);
+            {
+                this.m_Tips_TodayTalked_GO.SetActive(true);
 
+                bool wasTodayTalked = npcData.TodayTalkCount > 0;
+                this.m_Tips_TodayTalked_Checked.SetActive(wasTodayTalked);
+            }
+            {
+                this.m_Tips_WasPresent_GO.SetActive(true);
+
+                var presentItemTypesArray = npcData.PresentItemTypes.ToArray();
+                bool wasPresentNormal = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Normal);
+                bool wasPresentFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Favorite);
+                bool wasPresentVeryFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.VeryFavorite);
+
+                this.m_Tips_WasPresent_CheckedNormal.SetActive(wasPresentNormal);
+                this.m_Tips_WasPresent_CheckedLikes.SetActive(wasPresentFavorite);
+                this.m_Tips_WasPresent_CheckedLoves.SetActive(wasPresentVeryFavorite);
+            }
+
+            var isBirthday = NpcDataManager.Instance.LovePointManager.IsBirthDay(npcData.NpcId);
+            {
+                if (isBirthday)
+                {
+                    this.m_Tips_BirthdayLeft_GO.SetActive(false);
+                }
+                else
+                {
+                    this.m_Tips_BirthdayLeft_GO.SetActive(true);
+
+                    Define.Season birthday_season;
+                    int birthday_day;
+                    if (npcData.TryFindNPCBirthday(out birthday_season, out birthday_day))
+                    {
+                        var local_Today = ((int)TimeManager.Instance.Season * 30) + TimeManager.Instance.Day;
+                        var local_Birthday = ((int)birthday_season * 30) + birthday_day;
+                        int leftDay = 0;
+                        if (local_Today < local_Birthday) //Birthday not spend yet
+                            leftDay = local_Birthday - local_Today;
+                        else
+                            leftDay = ((4 * 30) - local_Today) + local_Birthday;
+                        this.m_Tips_BirthdayLeft_Text.text = string.Format(this.tips_BirthdayLeft_Text_Format, leftDay);
+                    }
+                    else
+                    {
+                        this.m_Tips_BirthdayLeft_GO.SetActive(false);
+                        BepInExLog.LogError($"[Attachment_LeftStatusPos] Cannot find {npcData.actorId}'s birthday");
+                    }
+                }
+            }
+            {
+                if (isBirthday)
+                {
+                    this.m_Tips_Alert_BirthdayToday_GO.SetActive(true);
+                }
+                else
+                {
+                    this.m_Tips_Alert_BirthdayToday_GO.SetActive(false);
+                }
+            }
         }
 
         private void OnDestroy()

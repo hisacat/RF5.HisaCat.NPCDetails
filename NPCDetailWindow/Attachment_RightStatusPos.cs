@@ -112,22 +112,6 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         public void SetNPCData(NpcData npcData)
         {
             this.m_NPCDetailText.text = GetDetailText(npcData);
-
-            //bool wasTodayTalked = npcData.TodayTalkCount > 0;
-
-            //var presentItemTypesArray = npcData.PresentItemTypes.ToArray();
-            //bool wasPresentVeryFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.VeryFavorite);
-            //bool wasPresentFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Favorite);
-            //bool wasPresentNormal = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.Normal);
-            //bool wasPresentNotFavorite = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavorite);
-            //bool wasPresentNotFavoriteBadly = presentItemTypesArray.Any(x => x == LovePointManager.FavoriteType.NotFavoriteBadly);
-
-            //BepInExLog.Log($"wasPresentVeryFavorite: {wasTodayTalked}");
-            //BepInExLog.Log($"wasPresentVeryFavorite: {wasPresentVeryFavorite}");
-            //BepInExLog.Log($"wasPresentFavorite: {wasPresentFavorite}");
-            //BepInExLog.Log($"wasPresentNormal: {wasPresentNormal}");
-            //BepInExLog.Log($"wasPresentNotFavorite: {wasPresentNotFavorite}");
-            //BepInExLog.Log($"wasPresentNotFavoriteBadly: {wasPresentNotFavoriteBadly}\r\n");
         }
 
         private static Dictionary<Define.ActorID, string> detailTextDic = null;

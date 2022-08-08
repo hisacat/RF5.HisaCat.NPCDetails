@@ -74,10 +74,14 @@ namespace RF5.HisaCat.NPCDetails
             [HarmonyPostfix]
             private static void UpdatePostfix(CampMenuMain __instance)
             {
-                //FOR DEBUG INPUT
-                if (BepInEx.IL2CPP.UnityEngine.Input.GetKeyInt(BepInEx.IL2CPP.UnityEngine.KeyCode.F1) && UnityEngine.Event.current.type == UnityEngine.EventType.KeyDown)
-                {
-                }
+                //FOR DEBUG
+                //if (BepInEx.IL2CPP.UnityEngine.Input.GetKeyInt(BepInEx.IL2CPP.UnityEngine.KeyCode.F1) && UnityEngine.Event.current.type == UnityEngine.EventType.KeyDown)
+                //{
+                //    //TimeManager.Instance.ChangeTimeNextDay(12, 30);
+                //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Tendon, 1));
+                //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Yakionigiri, 1));
+                //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Yakiimo, 1));
+                //}
             }
 
             [HarmonyPatch(typeof(CampMenuMain), nameof(CampMenuMain.StartCamp))]
