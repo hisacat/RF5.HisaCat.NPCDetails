@@ -32,7 +32,8 @@ namespace RF5.HisaCat.NPCDetails
             try
             {
                 //Register components
-                ClassInjector.RegisterTypeInIl2Cpp<NPCDetailWindow>();
+                ClassInjector.RegisterTypeInIl2Cpp<NPCDetailWindow.Attachment_LeftStatusPos>();
+                ClassInjector.RegisterTypeInIl2Cpp<NPCDetailWindow.Attachment_RightStatusPos>();
             }
             catch (System.Exception e)
             {
@@ -124,17 +125,11 @@ namespace RF5.HisaCat.NPCDetails
                 //and 'pageId' is index of friend list button (starts with 0)
                 //BepInExLog.Log($"SetStatusNPCPostfix. pageId: {pageId}, actorId: {__instance.actorId}");
 
-                if (NPCDetailWindow.Instance == null)
-                    NPCDetailWindow.InstantiateAndAttach(__instance);
+                NPCDetailWindow.NPCDetailWindowManager.TryAttachIfNotExist(__instance);
 
-                if (NPCDetailWindow.Instance != null)
-                {
-                    NPCDetailWindow.Instance.SetShown(true);
-                    var npcData = NpcDataManager.Instance.GetNpcData(__instance.actorId);
-                    NPCDetailWindow.Instance.SetNPCData(npcData);
-
-                    return;
-                }
+                NPCDetailWindow.NPCDetailWindowManager.TrySetShown(true);
+                var npcData = NpcDataManager.Instance.GetNpcData(__instance.actorId);
+                NPCDetailWindow.NPCDetailWindowManager.TrySetNPCData(npcData);
 
                 #region DEBUG
                 //BepInExLog.Log($" - CurrentPlace: {npcData.CurrentPlace}"); //Print current npc's place.
@@ -169,14 +164,9 @@ namespace RF5.HisaCat.NPCDetails
                 //BepInExLog.Log($"SetStatusMonsterPostfix. pageId: {pageId}, monsterDataID: {__instance.monsterDataID}");
                 var monsterData = MonsterDataTable.GetDataTable(__instance.monsterDataID);
 
-                if (NPCDetailWindow.Instance == null)
-                    NPCDetailWindow.InstantiateAndAttach(__instance);
+                NPCDetailWindow.NPCDetailWindowManager.TryAttachIfNotExist(__instance);
 
-                if (NPCDetailWindow.Instance != null)
-                {
-                    NPCDetailWindow.Instance.SetShown(false);
-                    return;
-                }
+                NPCDetailWindow.NPCDetailWindowManager.TrySetShown(false);
             }
         }
     }

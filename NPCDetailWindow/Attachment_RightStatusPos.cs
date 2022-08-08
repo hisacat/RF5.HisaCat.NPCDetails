@@ -7,86 +7,96 @@ using UnityEngine;
 using UnityEngine.UI;
 using RF5.HisaCat.NPCDetails.Utils;
 using RF5.HisaCat.NPCDetails.Localization;
-using BepInEx;
 
-namespace RF5.HisaCat.NPCDetails
+namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 {
-    internal class NPCDetailWindow : MonoBehaviour
+    /// <summary>
+    /// Attachments for RightStatusPos
+    /// </summary>
+    internal class Attachment_RightStatusPos : MonoBehaviour
     {
-        private Transform window = null;
-        private Text detailText = null;
+        internal static Attachment_RightStatusPos Instance { get; private set; }
 
-        private static UIOnOffAnimate equipMenuItemDetail = null;
-        public static NPCDetailWindow Instance { get; private set; }
-        public static bool InstantiateAndAttach(FriendPageStatusDisp friendPageStatusDisp)
+        public const string PrefabPathFromBundle = "[RF5.HisaCat.NPCDetails]RightStatusPos";
+
+        public const string AttachPathBasedFriendPageStatusDisp = "StatusObj/FriendsStatus/RightStatusPos";
+        public const string EquipMenuItemDetailWindowPath = "StatusObj/FriendsStatus/EquipMenuItemDetail/OnOffWindows";
+
+        public static class TransformPaths
         {
-            if (Instance != null)
+            public const string Window = "Window";
+            public const string Window_NPCDetailText = "TextArea/Mask/Text";
+        }
+
+        private GameObject m_Window_GO = null;
+        private Text m_NPCDetailText = null;
+        public bool PreloadPathes()
+        {
             {
-                BepInExLog.Log("[NPCDetailWindow] InstantiateAndAttach: instance already exist");
-                return true;
+                GameObject parent;
+                if (this.TryFindGameObject(TransformPaths.Window, out this.m_Window_GO) == false) return false;
+                parent = this.m_Window_GO;
+                if (parent.TryFindComponent<Text>(TransformPaths.Window_NPCDetailText, out this.m_NPCDetailText) == false) return false;
             }
-
-            var attachTarget = friendPageStatusDisp.transform.Find("StatusObj/FriendsStatus/RightStatusPos");
-            if (attachTarget == null)
-            {
-                BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find attachTarget");
-                return false;
-            }
-
-            equipMenuItemDetail = friendPageStatusDisp.FindComponent<UIOnOffAnimate>("StatusObj/FriendsStatus/EquipMenuItemDetail/OnOffWindows");
-            if (equipMenuItemDetail == null)
-            {
-                BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find equipMenuItemDetailWindow");
-                return false;
-            }
-
-            var windowPrefab = BundleLoader.MainBundle.LoadIL2CPP<GameObject>("[RF5.HisaCat.NPCDetails]RightStatusPos");
-            if (windowPrefab == null)
-            {
-                BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot load window prefab");
-                return false;
-            }
-
-            var windowInstanceGO = GameObject.Instantiate(windowPrefab, attachTarget.transform);
-            if (windowInstanceGO == null)
-            {
-                BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot instantiate window");
-                return false;
-            }
-
-            RF5FontHelper.SetFontGlobal(windowInstanceGO);
-
-            NPCDetailWindow.Instance = windowInstanceGO.AddComponent<NPCDetailWindow>();
-            {
-                NPCDetailWindow.Instance.window = windowInstanceGO.Find("Window");
-                if (NPCDetailWindow.Instance.window == null)
-                {
-                    BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find window");
-                    Destroy(NPCDetailWindow.Instance.gameObject);
-                    return false;
-                }
-                NPCDetailWindow.Instance.detailText = windowInstanceGO.FindComponent<Text>("Window/TextArea/Mask/Text");
-                if (NPCDetailWindow.Instance.detailText == null)
-                {
-                    BepInExLog.LogError("[NPCDetailWindow] InstantiateAndAttach: Cannot find detailText");
-                    Destroy(NPCDetailWindow.Instance.gameObject);
-                    return false;
-                }
-            }
-
-            //Check "/StartUI/UIMainManager/UIMainCanvas(Clone)/MainWindowCanvas/CampUI/CampMenuObject/CenterMenu/FriendlyMenu/NPCPage(Clone)/StatusObj/FriendsStatus/DiscriptionBoard" for support controllers
 
             return true;
         }
 
-        private void OnDestroy()
+        private FriendPageStatusDisp friendPageStatusDisp = null;
+        private UIOnOffAnimate equipMenuItemDetail = null;
+        public bool Init(FriendPageStatusDisp friendPageStatusDisp, UIOnOffAnimate equipMenuItemDetail)
         {
-            if (Instance == this)
+            this.friendPageStatusDisp = friendPageStatusDisp;
+            this.equipMenuItemDetail = equipMenuItemDetail;
+            return PreloadPathes();
+        }
+
+        public static bool InstantiateAndAttach(FriendPageStatusDisp friendPageStatusDisp)
+        {
+            if (Instance != null)
             {
-                //BepInExLog.LogWarning("[NPCDetailWindow] Instance was destroyed.");
-                Instance = null;
-                return;
+                BepInExLog.Log("[Attachment_RightStatusPos] InstantiateAndAttach: instance already exist");
+                return true;
             }
+
+            var attachTarget = friendPageStatusDisp.transform.Find(AttachPathBasedFriendPageStatusDisp);
+            if (attachTarget == null)
+            {
+                BepInExLog.LogError("[Attachment_RightStatusPos] InstantiateAndAttach: Cannot find attachTarget");
+                return false;
+            }
+
+            var equipMenuItemDetail = friendPageStatusDisp.FindComponent<UIOnOffAnimate>(EquipMenuItemDetailWindowPath);
+            if (equipMenuItemDetail == null)
+            {
+                BepInExLog.LogError("[Attachment_RightStatusPos] InstantiateAndAttach: Cannot find equipMenuItemDetailWindow");
+                return false;
+            }
+
+            var prefab = BundleLoader.MainBundle.LoadIL2CPP<GameObject>(PrefabPathFromBundle);
+            if (prefab == null)
+            {
+                BepInExLog.LogError("[Attachment_RightStatusPos] InstantiateAndAttach: Cannot load prefab");
+                return false;
+            }
+
+            var InstanceGO = GameObject.Instantiate(prefab, attachTarget.transform);
+            if (InstanceGO == null)
+            {
+                BepInExLog.LogError("[Attachment_RightStatusPos] InstantiateAndAttach: Cannot instantiate window");
+                return false;
+            }
+            RF5FontHelper.SetFontGlobal(InstanceGO);
+
+            Instance = InstanceGO.AddComponent<Attachment_RightStatusPos>();
+            if (Instance.Init(friendPageStatusDisp, equipMenuItemDetail) == false)
+            {
+                BepInExLog.LogError("[Attachment_RightStatusPos] InstantiateAndAttach: Initialize failed");
+                Instance = null; Destroy(InstanceGO);
+                return false;
+            }
+
+            return true;
         }
 
         public void SetShown(bool isShown)
@@ -97,9 +107,10 @@ namespace RF5.HisaCat.NPCDetails
         {
             return this.gameObject.activeSelf;
         }
+
         public void SetNPCData(NpcData npcData)
         {
-            this.detailText.text = GetDetailText(npcData);
+            this.m_NPCDetailText.text = GetDetailText(npcData);
 
             //bool wasTodayTalked = npcData.TodayTalkCount > 0;
 
@@ -174,8 +185,17 @@ namespace RF5.HisaCat.NPCDetails
         private void Update()
         {
             bool equipMenuItemDetailOpened = equipMenuItemDetail.gameObject.activeInHierarchy && equipMenuItemDetail.isOpen;
-            if (!equipMenuItemDetailOpened != this.window.gameObject.activeSelf)
-                this.window.gameObject.SetActive(!equipMenuItemDetailOpened);
+            if (!equipMenuItemDetailOpened != this.m_Window_GO.gameObject.activeSelf)
+                this.m_Window_GO.gameObject.SetActive(!equipMenuItemDetailOpened);
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+            {
+                Instance = null;
+                return;
+            }
         }
     }
 }
