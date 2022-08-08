@@ -16,7 +16,7 @@ or install other base mod BepInEx already included (like [RF5Fix mod](https://gi
 
 ## Contributing
 
-You can help translating this mod on Crowdin
+You can help translating this mod on [Crowdin](https://crowdin.com/project/rf5-npc-details)
 (Source language is English)
 
 [![Crowdin](https://badges.crowdin.net/rf5-npc-details/localized.svg)](https://crowdin.com/project/rf5-npc-details)
