@@ -224,6 +224,10 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             }
         }
 
+        public void SetMonsterData(MonsterDataTable monsterData)
+        {
+        }
+
         private void OnDestroy()
         {
             if (Instance == this)

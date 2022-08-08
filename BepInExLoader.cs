@@ -166,11 +166,12 @@ namespace RF5.HisaCat.NPCDetails
                 //Same with 'SetStatusNPCPostfix' but in moster case
                 //But in this case, trust 'monsterDataID' instead 'actorId'
                 //BepInExLog.Log($"SetStatusMonsterPostfix. pageId: {pageId}, monsterDataID: {__instance.monsterDataID}");
-                var monsterData = MonsterDataTable.GetDataTable(__instance.monsterDataID);
-
                 NPCDetailWindow.NPCDetailWindowManager.TryAttachIfNotExist(__instance);
 
-                NPCDetailWindow.NPCDetailWindowManager.TrySetShown(false);
+                //NPCDetailWindow.NPCDetailWindowManager.TrySetShown(false);
+                NPCDetailWindow.NPCDetailWindowManager.TrySetShown(true);
+                var monsterData = MonsterDataTable.GetDataTable(__instance.monsterDataID);
+                NPCDetailWindow.NPCDetailWindowManager.TrySetMonsterData(monsterData);
             }
         }
     }
