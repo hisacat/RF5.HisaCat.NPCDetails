@@ -1,5 +1,11 @@
 ﻿# Release notes
 
+## v1.3.0
+- Displays Monster brushing or not today.
+- Displays gifts delivered to monster or not today.
+- Displays Monster's workplace if it helping farm.
+- Displays Monster taming gifts.
+
 ## v1.2.0
 - Displays talked or not today.
 - Displays gifts delivered or not today. (displays `Normal, Likes, Loves` 3 types)
