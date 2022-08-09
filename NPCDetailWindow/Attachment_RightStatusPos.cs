@@ -146,11 +146,11 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 
             if (detailTextDic.ContainsKey(npcData.actorId) == false)
             {
-                var text_Birthday = LocalizationManager.Load("detail.title.birthday");
-                var text_Loves = LocalizationManager.Load("detail.title.loves");
-                var text_Likes = LocalizationManager.Load("detail.title.likes");
-                var text_Dislikes = LocalizationManager.Load("detail.title.dislikes");
-                var text_Hates = LocalizationManager.Load("detail.title.hates");
+                var text_Birthday = LocalizationManager.Load("npc.detail.title.birthday");
+                var text_Loves = LocalizationManager.Load("npc.detail.title.loves");
+                var text_Likes = LocalizationManager.Load("npc.detail.title.likes");
+                var text_Dislikes = LocalizationManager.Load("npc.detail.title.dislikes");
+                var text_Hates = LocalizationManager.Load("npc.detail.title.hates");
 
                 var text = string.Empty;
 
@@ -195,6 +195,20 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             this.m_Status_NPC_GO.SetActive(false);
             this.m_Status_Monster_GO.SetActive(true);
 
+            var text = string.Empty;
+
+            text += $"<size=25>{LocalizationManager.Load("monster.detail.title.origin_name")}:</size> {RF5DataExtension.GetMonsterName(monsterData.MonsterId)}\r\n\r\n";
+            text += $"<size=25>{LocalizationManager.Load("monster.detail.title.favorites")}</size>\r\n{string.Join(", ", monsterData.GetFavoriteItemDataTables().Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
+            //var dropItemData = MonsterDropItemDataTable.GetDataTable(monsterData.DropItemDataID);
+            //if(dropItemData != null)
+            //{
+            //    text += $"<size=25>{LocalizationManager.Load("")}</size>\r\n{string.Join(", ", RF5DataExtension.ItemIdArrayToItemDataTables(dropItemData.DropItemParamList.ToArray().Select(x => x.ItemID)).Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
+            //    text += $"<size=25>{LocalizationManager.Load("")}</size>\r\n{string.Join(", ", RF5DataExtension.ItemIdArrayToItemDataTables(dropItemData.BonusDropItemParamList.ToArray().Select(x => x.ItemID)).Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
+            //    text += $"<size=25>{LocalizationManager.Load("")}</size>\r\n{string.Join(", ", RF5DataExtension.ItemIdArrayToItemDataTables(dropItemData.HandcuffsDropItemParamList.ToArray().Select(x => x.ItemID)).Select(x => $"{x.GetItemName()}"))}\r\n\r\n";
+            //}
+
+            text += "\r\n";
+            this.m_Monster_DetailText.text = text;
         }
 
         private void Update()

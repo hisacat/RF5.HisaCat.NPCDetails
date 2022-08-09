@@ -24,6 +24,10 @@ namespace RF5.HisaCat.NPCDetails.Utils
             //return data.statusData.FocusName; //It returnes japanese name.
         }
 
+        public static List<ItemDataTable> ItemIdArrayToItemDataTables(IEnumerable<ItemID> itemIds)
+        {
+            return ItemIdArrayToItemDataTables(itemIds.Select(x => (int)x));
+        }
         public static List<ItemDataTable> ItemIdArrayToItemDataTables(IEnumerable<int> itemIds)
         {
             var items = new List<ItemDataTable>();
@@ -134,6 +138,40 @@ namespace RF5.HisaCat.NPCDetails.Utils
             }
 
             return data;
+        }
+
+        public static List<ItemDataTable> GetFavoriteItemDataTables(this MonsterDataTable monsterData)
+        {
+            return ItemIdArrayToItemDataTables(monsterData.FavoriteItemData.ItemIDArray);
+        }
+
+        public static string GetFarmName(Farm.FarmManager.FARM_ID farmId)
+        {
+            switch (farmId)
+            {
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Soil:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_FarmDragon_01_soil);
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Fire:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_FarmDragon_02_fire);
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Ice:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_FarmDragon_03_ice);
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Wind:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_FarmDragon_04_wind);
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Ground:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_SCENE_FarmDragon_05_ground);
+                //Unknowns
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Village:
+                    return SV.UIRes.GetSystemText(UITextDic.DICID.MAPNAME_FIELD_Town);
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_Vision:
+                case Farm.FarmManager.FARM_ID.RF4_FREEFARM_ID_MAX:
+                default:
+                    return farmId.ToString();
+            }
+        }
+
+        public static string GetMonsterName(MonsterID monsterId)
+        {
+            return SV.UIRes.MonsterName(monsterId);
         }
 
         public static string GetLocalizedPlaceName(Define.Place place)

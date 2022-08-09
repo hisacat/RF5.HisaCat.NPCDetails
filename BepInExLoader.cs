@@ -92,6 +92,11 @@ namespace RF5.HisaCat.NPCDetails
                 //FOR DEBUG
                 //if (BepInEx.IL2CPP.UnityEngine.Input.GetKeyInt(BepInEx.IL2CPP.UnityEngine.KeyCode.F1) && UnityEngine.Event.current.type == UnityEngine.EventType.KeyDown)
                 //{
+                //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Rabunomidorinku, 1));
+                //    foreach(var status in FriendMonsterManager.FriendMonsterStatusDatas)
+                //    {
+                //        status.LovePoint.Add(1000);
+                //    }
                 //    //TimeManager.Instance.ChangeTimeNextDay(12, 30);
                 //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Tendon, 1));
                 //    //ItemStorageManager.GetStorage(Define.StorageType.Rucksack).PushItemIn(ItemData.Instantiate(ItemID.Item_Yakionigiri, 1));
