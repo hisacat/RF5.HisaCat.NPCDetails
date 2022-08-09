@@ -26,10 +26,10 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         {
             public const string Window = "Window";
 
-            public const string Status_NPC = "RF5ContentsArea/Status_NPC";
+            public const string Status_NPC = "Status_NPC";
             public const string NPC_DetailText = "TextArea/Mask/Text";
 
-            public const string Status_Monster = "RF5ContentsArea/Status_Monster";
+            public const string Status_Monster = "Status_Monster";
             public const string Monster_DetailText = "TextArea/Mask/Text";
         }
 
