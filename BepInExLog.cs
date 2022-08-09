@@ -8,6 +8,10 @@ namespace RF5.HisaCat.NPCDetails
 {
     internal static class BepInExLog
     {
+        /// <summary>
+        /// Tips: BepInEx 'Debug' LogLevel is ignored defaults. if you want to see, edit 'LogLevels' option on '[Logging.Console]' section.
+        /// </summary>
+        /// <param name="obj"></param>
         public static void LogDebug(object obj)
         {
             BepInExLoader.log.LogDebug($"[{BepInExLoader.GUID}] {obj.ToString()}");

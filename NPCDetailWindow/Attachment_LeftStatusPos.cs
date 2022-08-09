@@ -243,13 +243,12 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             }
         }
 
-        public void SetMonsterData(int pageId, MonsterDataTable monsterData)
+        public void SetMonsterData(FriendMonsterStatusData friendMonsterData, MonsterDataTable monsterData)
         {
             this.m_Status_NPC_GO.SetActive(false);
             this.m_Status_Monster_GO.SetActive(true);
 
         }
-
         private void OnDestroy()
         {
             if (Instance == this)

@@ -112,6 +112,30 @@ namespace RF5.HisaCat.NPCDetails.Utils
             return false;
         }
 
+        public static FriendMonsterStatusData GetFriendMonsterDataFromIndex(int monsterIdx, MonsterDataTable monsterData)
+        {
+            if (monsterIdx < 0 || monsterIdx >= FriendMonsterManager.FriendMonsterStatusDatas.Count)
+            {
+                BepInExLog.LogError($"Cannot find FriendMonsterStatusDatas cause monsterIdx Invalid! monsterIdx: {monsterIdx}, statusDatasCount: {FriendMonsterManager.FriendMonsterStatusDatas.Count}");
+                return null;
+            }
+
+            var data = FriendMonsterManager.FriendMonsterStatusDatas[monsterIdx];
+            if (data == null)
+            {
+                BepInExLog.LogError($"Cannot find friend monster from statusId {monsterIdx}");
+                return null;
+            }
+
+            if (data.MonsterDataID != monsterData.DataID)
+            {
+                BepInExLog.LogError($"Friend monster finded at {monsterIdx} but dataId missmatched! finded: {data.MonsterDataID} req: {monsterData.DataID}");
+                return null;
+            }
+
+            return data;
+        }
+
         public static string GetLocalizedPlaceName(Define.Place place)
         {
             switch (place)

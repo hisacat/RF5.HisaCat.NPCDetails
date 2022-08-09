@@ -33,10 +33,10 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             Attachment_LeftStatusPos.Instance?.SetNPCData(npcData);
             Attachment_RightStatusPos.Instance?.SetNPCData(npcData);
         }
-        public static void TrySetMonsterData(int pageId, MonsterDataTable monsterData)
+        public static void TrySetMonsterData(FriendMonsterStatusData friendMonsterData, MonsterDataTable monsterData)
         {
-            Attachment_LeftStatusPos.Instance?.SetMonsterData(pageId, monsterData);
-            Attachment_RightStatusPos.Instance?.SetMonsterData(pageId, monsterData);
+            Attachment_LeftStatusPos.Instance?.SetMonsterData(friendMonsterData, monsterData);
+            Attachment_RightStatusPos.Instance?.SetMonsterData(friendMonsterData, monsterData);
         }
         public static void TrySetShown(bool isShown)
         {

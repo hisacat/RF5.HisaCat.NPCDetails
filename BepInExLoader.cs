@@ -196,11 +196,19 @@ namespace RF5.HisaCat.NPCDetails
 
                 //NPCDetailWindow.NPCDetailWindowManager.TrySetShown(false);
                 NPCDetailWindow.NPCDetailWindowManager.TrySetShown(true);
-                var monsterData = MonsterDataTable.GetDataTable(__instance.monsterDataID);
 
-                //_generateFriendlistButton.MonsterStatusDataIds ?
-                //__instance.monsterDataID ?
-                NPCDetailWindow.NPCDetailWindowManager.TrySetMonsterData(pageId, monsterData);
+                var monsterData = MonsterDataTable.GetDataTable(__instance.monsterDataID);
+                var friendMonsterData = RF5DataExtension.GetFriendMonsterDataFromIndex(_generateFriendlistButton.GetMonsterIndex(pageId), monsterData);
+                if (friendMonsterData == null)
+                {
+                    BepInExLog.LogError("Cannot find friend monster");
+                    NPCDetailWindow.NPCDetailWindowManager.TrySetShown(false);
+                }
+                else
+                {
+                    BepInExLog.LogDebug($"Friend monster data finded. name: {friendMonsterData.Name}");
+                    NPCDetailWindow.NPCDetailWindowManager.TrySetMonsterData(friendMonsterData, monsterData);
+                }
             }
         }
     }

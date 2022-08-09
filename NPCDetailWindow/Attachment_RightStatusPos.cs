@@ -25,20 +25,41 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         public static class TransformPaths
         {
             public const string Window = "Window";
-            public const string Window_NPCDetailText = "TextArea/Mask/Text";
+
+            public const string Status_NPC = "RF5ContentsArea/Status_NPC";
+            public const string NPC_DetailText = "TextArea/Mask/Text";
+
+            public const string Status_Monster = "RF5ContentsArea/Status_Monster";
+            public const string Monster_DetailText = "TextArea/Mask/Text";
         }
 
         private GameObject m_Window_GO = null;
-        private Text m_NPCDetailText = null;
+
+        public GameObject m_Status_NPC_GO = null;
+        public GameObject m_Status_Monster_GO = null;
+
+        private Text m_NPC_DetailText = null;
+        private Text m_Monster_DetailText = null;
         public bool PreloadPathes()
         {
             {
-                GameObject parent;
-                if (this.TryFindGameObject(TransformPaths.Window, out this.m_Window_GO) == false) return false;
-                parent = this.m_Window_GO;
-                if (parent.TryFindComponent<Text>(TransformPaths.Window_NPCDetailText, out this.m_NPCDetailText) == false) return false;
-            }
+                GameObject root;
+                if (this.TryFindGameObject(TransformPaths.Window, out root) == false) return false;
+                this.m_Window_GO = root;
 
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.Status_NPC, out parent) == false) return false;
+                    this.m_Status_NPC_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.NPC_DetailText, out this.m_NPC_DetailText) == false) return false;
+                }
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.Status_Monster, out parent) == false) return false;
+                    this.m_Status_Monster_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.Monster_DetailText, out this.m_Monster_DetailText) == false) return false;
+                }
+            }
             return true;
         }
 
@@ -111,7 +132,10 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 
         public void SetNPCData(NpcData npcData)
         {
-            this.m_NPCDetailText.text = GetDetailText(npcData);
+            this.m_Status_NPC_GO.SetActive(true);
+            this.m_Status_Monster_GO.SetActive(false);
+
+            this.m_NPC_DetailText.text = GetDetailText(npcData);
         }
 
         private static Dictionary<Define.ActorID, string> detailTextDic = null;
@@ -166,8 +190,10 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             }
             return detailTextDic[npcData.actorId];
         }
-        public void SetMonsterData(int pageId, MonsterDataTable monsterData)
+        public void SetMonsterData(FriendMonsterStatusData friendMonsterData, MonsterDataTable monsterData)
         {
+            this.m_Status_NPC_GO.SetActive(false);
+            this.m_Status_Monster_GO.SetActive(true);
 
         }
 
