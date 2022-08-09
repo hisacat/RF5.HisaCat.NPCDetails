@@ -39,7 +39,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             public const string NPC_Tips_Alert_BirthdayToday = "TipsArea/Tips_Alert_BirthdayToday";
             public const string NPC_Tips_Alert_BirthdayToday_Text = "Text";
 
-            public const string Status_Monster = "RF5ContentsArea/Status_NPC";
+            public const string Status_Monster = "RF5ContentsArea/Status_Monster";
         }
 
 
