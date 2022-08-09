@@ -206,7 +206,7 @@ namespace RF5.HisaCat.NPCDetails
                 }
                 else
                 {
-                    BepInExLog.LogDebug($"Friend monster data finded. name: {friendMonsterData.Name}");
+                    BepInExLog.LogInfo($"Friend monster data finded. name: {friendMonsterData.Name}");
                     NPCDetailWindow.NPCDetailWindowManager.TrySetMonsterData(friendMonsterData, monsterData);
                 }
             }

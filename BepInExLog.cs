@@ -16,6 +16,10 @@ namespace RF5.HisaCat.NPCDetails
         {
             BepInExLoader.log.LogDebug($"[{BepInExLoader.GUID}] {obj.ToString()}");
         }
+        public static void LogInfo(object obj)
+        {
+            BepInExLoader.log.LogInfo($"[{BepInExLoader.GUID}] {obj.ToString()}");
+        }
         public static void LogMessage(object obj)
         {
             BepInExLoader.log.LogMessage($"[{BepInExLoader.GUID}] {obj.ToString()}");
