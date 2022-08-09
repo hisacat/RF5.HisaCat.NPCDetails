@@ -46,6 +46,7 @@ namespace RF5.HisaCat.NPCDetails
                 Harmony.CreateAndPatchAll(typeof(RF5FontHelper.FontLoader));
                 Harmony.CreateAndPatchAll(typeof(SVPatcher));
                 Harmony.CreateAndPatchAll(typeof(UIPatcher));
+                //Harmony.CreateAndPatchAll(typeof(CalcStatusPatcher)); //for test
             }
             catch (System.Exception e)
             {
@@ -66,6 +67,20 @@ namespace RF5.HisaCat.NPCDetails
                     BundleLoader.LoadBundle();
             }
         }
+
+        //[HarmonyPatch]
+        //[Obsolete("This is TEST code for tame always success")]
+        //internal static class CalcStatusPatcher
+        //{
+        //    //For test, tame always success
+        //    [HarmonyPatch(typeof(Calc.CalcStatus), nameof(Calc.CalcStatus.CalcTame))]
+        //    [HarmonyPrefix]
+        //    private static bool CalcTamePrefix(ref bool __result, MonsterControllerBase monster)
+        //    {
+        //        __result = true;
+        //        return false; //return false to skip
+        //    }
+        //}
 
         [HarmonyPatch]
         internal class UIPatcher
