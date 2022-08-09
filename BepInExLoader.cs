@@ -84,6 +84,17 @@ namespace RF5.HisaCat.NPCDetails
                 //}
             }
 
+            private static string[] LAGACY_FILES_PATH = {
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "texts.ini"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "chs.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "cht.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "de.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "en.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "fr.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "ja.json"),
+                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "ko.json"),
+            };
+
             [HarmonyPatch(typeof(CampMenuMain), nameof(CampMenuMain.StartCamp))]
             [HarmonyPostfix]
             private static void StartCampPostfix(CampMenuMain __instance)
