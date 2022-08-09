@@ -7,5 +7,8 @@
   "tips.title.talk_today": "Talked today",
   "tips.title.was_present": "Gift delivered",
   "tips.title.birthday_left": "{0} days left until birthday",
-  "tips.title.birthday_today": "Is birthday today!"
+  "tips.title.birthday_today": "Is birthday today!",
+  "tips.workarea.left": "Left",
+  "tips.workarea.center": "Center",
+  "tips.workarea.right": "Right"
 }

@@ -7,5 +7,8 @@
   "tips.title.talk_today": "今日已问候",
   "tips.title.was_present": "今日已送礼",
   "tips.title.birthday_left": "距离生日还有{0} 天",
-  "tips.title.birthday_today": "今天是ta的生日！"
+  "tips.title.birthday_today": "今天是ta的生日！",
+  "tips.workarea.left": "Left",
+  "tips.workarea.center": "Center",
+  "tips.workarea.right": "Right"
 }

@@ -7,5 +7,8 @@
   "tips.title.talk_today": "今日お話し",
   "tips.title.was_present": "プレセント",
   "tips.title.birthday_left": "誕生日まで{0}日",
-  "tips.title.birthday_today": "今日誕生日です!"
+  "tips.title.birthday_today": "今日誕生日です!",
+  "tips.workarea.left": "左",
+  "tips.workarea.center": "真ん中",
+  "tips.workarea.right": "右"
 }

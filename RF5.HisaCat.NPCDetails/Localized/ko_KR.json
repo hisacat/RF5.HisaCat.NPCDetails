@@ -7,5 +7,8 @@
   "tips.title.talk_today": "오늘 대화",
   "tips.title.was_present": "선물 전달됨",
   "tips.title.birthday_left": "생일까지 {0}일 남음",
-  "tips.title.birthday_today": "오늘 생일입니다!"
+  "tips.title.birthday_today": "오늘 생일입니다!",
+  "tips.workarea.left": "왼쪽",
+  "tips.workarea.center": "중간",
+  "tips.workarea.right": "오른쪽"
 }
