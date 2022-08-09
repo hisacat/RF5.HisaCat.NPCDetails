@@ -22,22 +22,29 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         public const string AttachPathBasedFriendPageStatusDisp = "StatusObj/FriendsStatus/LeftStatusPos";
         public static class TransformPaths
         {
-            public const string Tips_TodayTalked = "RF5ContentsArea/TipsArea/Tips_TodayTalked";
-            public const string Tips_TodayTalked_Text = "Text";
-            public const string Tips_TodayTalked_Checked = "Checkbox/checked";
+            public const string Status_NPC = "RF5ContentsArea/Status_NPC";
+            public const string NPC_Tips_TodayTalked = "TipsArea/Tips_TodayTalked";
+            public const string NPC_Tips_TodayTalked_Text = "Text";
+            public const string NPC_Tips_TodayTalked_Checked = "Checkbox/checked";
 
-            public const string Tips_WasPresent = "RF5ContentsArea/TipsArea/Tips_WasPresent";
-            public const string Tips_WasPresent_Text = "Text";
-            public const string Tips_WasPresent_CheckedNormal = "Checkbox_Normal/checked";
-            public const string Tips_WasPresent_CheckedLikes = "Checkbox_Likes/checked";
-            public const string Tips_WasPresent_CheckedLoves = "Checkbox_Loves/checked";
+            public const string NPC_Tips_WasPresent = "TipsArea/Tips_WasPresent";
+            public const string NPC_Tips_WasPresent_Text = "Text";
+            public const string NPC_Tips_WasPresent_CheckedNormal = "Checkbox_Normal/checked";
+            public const string NPC_Tips_WasPresent_CheckedLikes = "Checkbox_Likes/checked";
+            public const string NPC_Tips_WasPresent_CheckedLoves = "Checkbox_Loves/checked";
 
-            public const string Tips_BirthdayLeft = "RF5ContentsArea/TipsArea/Tips_BirthdayLeft";
-            public const string Tips_BirthdayLeft_Text = "Text";
+            public const string NPC_Tips_BirthdayLeft = "TipsArea/Tips_BirthdayLeft";
+            public const string NPC_Tips_BirthdayLeft_Text = "Text";
 
-            public const string Tips_Alert_BirthdayToday = "RF5ContentsArea/TipsArea/Tips_Alert_BirthdayToday";
-            public const string Tips_Alert_BirthdayToday_Text = "Text";
+            public const string NPC_Tips_Alert_BirthdayToday = "TipsArea/Tips_Alert_BirthdayToday";
+            public const string NPC_Tips_Alert_BirthdayToday_Text = "Text";
+
+            public const string Status_Monster = "RF5ContentsArea/Status_NPC";
         }
+
+
+        public GameObject m_Status_NPC_GO = null;
+        public GameObject m_Status_Monster_GO = null;
 
         public GameObject m_Tips_TodayTalked_GO = null;
         public Text m_Tips_TodayTalked_Text = null;
@@ -57,36 +64,45 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
         public bool PreloadPathes()
         {
             {
-                GameObject parent;
-                if (this.TryFindGameObject(TransformPaths.Tips_TodayTalked, out parent) == false) return false;
-                this.m_Tips_TodayTalked_GO = parent;
-                if (parent.TryFindComponent<Text>(TransformPaths.Tips_TodayTalked_Text, out this.m_Tips_TodayTalked_Text) == false) return false;
-                if (parent.TryFindGameObject(TransformPaths.Tips_TodayTalked_Checked, out this.m_Tips_TodayTalked_Checked) == false) return false;
-            }
+                GameObject root;
+                if (this.TryFindGameObject(TransformPaths.Status_NPC, out root) == false) return false;
+                this.m_Status_NPC_GO = root;
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.NPC_Tips_TodayTalked, out parent) == false) return false;
+                    this.m_Tips_TodayTalked_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.NPC_Tips_TodayTalked_Text, out this.m_Tips_TodayTalked_Text) == false) return false;
+                    if (parent.TryFindGameObject(TransformPaths.NPC_Tips_TodayTalked_Checked, out this.m_Tips_TodayTalked_Checked) == false) return false;
+                }
 
-            {
-                GameObject parent;
-                if (this.TryFindGameObject(TransformPaths.Tips_WasPresent, out parent) == false) return false;
-                this.m_Tips_WasPresent_GO = parent;
-                if (parent.TryFindComponent<Text>(TransformPaths.Tips_WasPresent_Text, out this.m_Tips_WasPresent_Text) == false) return false;
-                if (parent.TryFindGameObject(TransformPaths.Tips_WasPresent_CheckedNormal, out this.m_Tips_WasPresent_CheckedNormal) == false) return false;
-                if (parent.TryFindGameObject(TransformPaths.Tips_WasPresent_CheckedLikes, out this.m_Tips_WasPresent_CheckedLikes) == false) return false;
-                if (parent.TryFindGameObject(TransformPaths.Tips_WasPresent_CheckedLoves, out this.m_Tips_WasPresent_CheckedLoves) == false) return false;
-            }
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.NPC_Tips_WasPresent, out parent) == false) return false;
+                    this.m_Tips_WasPresent_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.NPC_Tips_WasPresent_Text, out this.m_Tips_WasPresent_Text) == false) return false;
+                    if (parent.TryFindGameObject(TransformPaths.NPC_Tips_WasPresent_CheckedNormal, out this.m_Tips_WasPresent_CheckedNormal) == false) return false;
+                    if (parent.TryFindGameObject(TransformPaths.NPC_Tips_WasPresent_CheckedLikes, out this.m_Tips_WasPresent_CheckedLikes) == false) return false;
+                    if (parent.TryFindGameObject(TransformPaths.NPC_Tips_WasPresent_CheckedLoves, out this.m_Tips_WasPresent_CheckedLoves) == false) return false;
+                }
 
-            {
-                GameObject parent;
-                if (this.TryFindGameObject(TransformPaths.Tips_BirthdayLeft, out parent) == false) return false;
-                this.m_Tips_BirthdayLeft_GO = parent;
-                if (parent.TryFindComponent<Text>(TransformPaths.Tips_BirthdayLeft_Text, out this.m_Tips_BirthdayLeft_Text) == false) return false;
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.NPC_Tips_BirthdayLeft, out parent) == false) return false;
+                    this.m_Tips_BirthdayLeft_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.NPC_Tips_BirthdayLeft_Text, out this.m_Tips_BirthdayLeft_Text) == false) return false;
+                }
+                {
+                    GameObject parent;
+                    if (root.TryFindGameObject(TransformPaths.NPC_Tips_Alert_BirthdayToday, out parent) == false) return false;
+                    this.m_Tips_Alert_BirthdayToday_GO = parent;
+                    if (parent.TryFindComponent<Text>(TransformPaths.NPC_Tips_Alert_BirthdayToday_Text, out this.m_Tips_Alert_BirthdayToday_Text) == false) return false;
+                }
             }
             {
-                GameObject parent;
-                if (this.TryFindGameObject(TransformPaths.Tips_Alert_BirthdayToday, out parent) == false) return false;
-                this.m_Tips_Alert_BirthdayToday_GO = parent;
-                if (parent.TryFindComponent<Text>(TransformPaths.Tips_Alert_BirthdayToday_Text, out this.m_Tips_Alert_BirthdayToday_Text) == false) return false;
+                GameObject root;
+                if (this.TryFindGameObject(TransformPaths.Status_Monster, out root) == false) return false;
+                this.m_Status_Monster_GO = root;
             }
-
             return true;
         }
 
@@ -159,6 +175,9 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
 
         public void SetNPCData(NpcData npcData)
         {
+            this.m_Status_NPC_GO.SetActive(true);
+            this.m_Status_Monster_GO.SetActive(false);
+
             this.m_Tips_TodayTalked_GO.SetActive(false);
             this.m_Tips_WasPresent_GO.SetActive(false);
             this.m_Tips_BirthdayLeft_GO.SetActive(false);
@@ -224,8 +243,11 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             }
         }
 
-        public void SetMonsterData(MonsterDataTable monsterData)
+        public void SetMonsterData(int pageId, MonsterDataTable monsterData)
         {
+            this.m_Status_NPC_GO.SetActive(false);
+            this.m_Status_Monster_GO.SetActive(true);
+
         }
 
         private void OnDestroy()

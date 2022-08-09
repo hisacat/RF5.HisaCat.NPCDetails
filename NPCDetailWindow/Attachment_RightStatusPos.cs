@@ -166,7 +166,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
             }
             return detailTextDic[npcData.actorId];
         }
-        public void SetMonsterData(MonsterDataTable monsterData)
+        public void SetMonsterData(int pageId, MonsterDataTable monsterData)
         {
 
         }
