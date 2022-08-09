@@ -72,7 +72,7 @@ namespace RF5.HisaCat.NPCDetails.Utils
                 BepInExLog.LogError("SetFontGlobal: font was not ready");
                 return;
             }
-            var texts = root.GetComponentsInChildren<Text>();
+            var texts = root.GetComponentsInChildren<Text>(true);
             foreach (var text in texts)
                 text.font = MainFont;
         }
