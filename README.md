@@ -1,7 +1,8 @@
 # Rune Factory 5 - NPC Details
 ![npcdetail](https://user-images.githubusercontent.com/17191898/183464739-1042d015-9d0a-4a38-a6ad-c4344cc8a1b4.gif)
+![npcdetail-monster](https://user-images.githubusercontent.com/17191898/183687833-dc218df9-3f18-4e34-9946-64b55a1a6baa.png)
 
-This mod displays NPC's details like favorite gifts etc
+This mod displays NPC and Monster's details like favorite gifts etc
 
 ## Installation
 
