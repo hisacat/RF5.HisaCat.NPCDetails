@@ -17,14 +17,14 @@ namespace RF5.HisaCat.NPCDetails
         {
             if (MainBundle != null)
             {
-                BepInExLog.LogDebug("BundleLoader: Bundle already loaded");
+                BepInExLog.LogDebug("[BundleLoader] Bundle already loaded");
                 return true;
             }
             var bundleDir = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID);
             var mainBundlePath = System.IO.Path.Combine(bundleDir, "npcdetails.main.unity3d");
             if (System.IO.File.Exists(mainBundlePath) == false)
             {
-                BepInExLog.LogError($"BundleLoader: Bundle missing. bundle must be placed at \"{mainBundlePath}\"");
+                BepInExLog.LogError($"[BundleLoader] Bundle missing. bundle must be placed at \"{mainBundlePath}\"");
                 return false;
             }
 
@@ -32,11 +32,11 @@ namespace RF5.HisaCat.NPCDetails
 
             if (MainBundle == null)
             {
-                BepInExLog.LogError($"BundleLoader: Cannot load bundle at \"{mainBundlePath}\"");
+                BepInExLog.LogError($"[BundleLoader] Cannot load bundle at \"{mainBundlePath}\"");
                 return false;
             }
 
-            BepInExLog.LogDebug("BundleLoader: Bundle loaded.");
+            BepInExLog.LogInfo("[BundleLoader] Bundle loaded.");
             return true;
         }
 

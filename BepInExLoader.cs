@@ -39,6 +39,7 @@ namespace RF5.HisaCat.NPCDetails
             {
                 BepInExLog.LogError($"Harmony - FAILED to Register Il2Cpp Types! {e}");
             }
+            BepInExLog.LogInfo("[Harmony] RegisterTypeInIl2Cpp succeed.");
 
             try
             {
@@ -52,6 +53,7 @@ namespace RF5.HisaCat.NPCDetails
             {
                 BepInExLog.LogError($"Harmony - FAILED to Apply Patch's! {e}");
             }
+            BepInExLog.LogInfo("[Harmony] Patch succeed.");
         }
 
 

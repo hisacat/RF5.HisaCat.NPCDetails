@@ -117,7 +117,7 @@ namespace RF5.HisaCat.NPCDetails.NPCDetailWindow
                 return false;
             }
 
-            BepInExLog.LogDebug("[Attachment_RightStatusPos] Attached");
+            BepInExLog.LogInfo("[Attachment_RightStatusPos] Attached");
             return true;
         }
 
