@@ -8,12 +8,12 @@
   "npc.tips.title.was_present": "Geschenk gegeben",
   "npc.tips.title.birthday_left": "{0} Tage bis zum Geburtstag",
   "npc.tips.title.birthday_today": "Geburtstag ist heute!",
-  "monster.detail.title.origin_name": "Monster name",
-  "monster.detail.title.favorites": "Taming gifts",
-  "monster.tips.title.brushing_today": "Brushing today",
-  "monster.tips.title.was_present": "Gift delivered",
-  "monster.tips.title.helping_farm": "Is helping farm!",
-  "monster.tips.workarea.left": "Left",
-  "monster.tips.workarea.center": "Center",
-  "monster.tips.workarea.right": "Right"
+  "monster.detail.title.origin_name": "Name des Monsters",
+  "monster.detail.title.favorites": "Zähmung Geschenke",
+  "monster.tips.title.brushing_today": "Heute gebürstet",
+  "monster.tips.title.was_present": "Geschenk gegeben",
+  "monster.tips.title.helping_farm": "Hilft auf der Farm!",
+  "monster.tips.workarea.left": "Links",
+  "monster.tips.workarea.center": "Mitte",
+  "monster.tips.workarea.right": "Rechts"
 }
