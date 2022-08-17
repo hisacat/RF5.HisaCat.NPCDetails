@@ -22,6 +22,11 @@ namespace RF5.HisaCat.NPCDetails
 
         public static BepInEx.Logging.ManualLogSource log;
 
+        public static string GetPluginRootDirectory()
+        {
+            return System.IO.Path.GetDirectoryName(BepInEx.IL2CPP.IL2CPPChainloader.Instance.Plugins[GUID].Location);
+        }
+
         public BepInExLoader()
         {
             log = Log;
@@ -107,14 +112,14 @@ namespace RF5.HisaCat.NPCDetails
             }
 
             private static string[] LAGACY_FILES_PATH = {
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "texts.ini"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "chs.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "cht.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "de.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "en.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "fr.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "ja.json"),
-                System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, "Localized", "ko.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "texts.ini"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "chs.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "cht.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "de.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "en.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "fr.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "ja.json"),
+                System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, "Localized", "ko.json"),
             };
 
             [HarmonyPatch(typeof(CampMenuMain), nameof(CampMenuMain.StartCamp))]

@@ -63,7 +63,7 @@ namespace RF5.HisaCat.NPCDetails.Localization
 
             for (var lang = BootOption.SystemLanguage.English; lang <= BootOption.SystemLanguage.Germen; lang++)
             {
-                var path = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, $"{GetLocaleStr(lang)}.json");
+                var path = System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, $"{GetLocaleStr(lang)}.json");
                 System.IO.File.WriteAllText(path, json);
             }
         }
@@ -84,7 +84,7 @@ namespace RF5.HisaCat.NPCDetails.Localization
             {
                 //Load.
                 var datas = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-                var curPath = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID, this.Path, $"{GetLocaleStr(lang)}.json");
+                var curPath = System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID, this.Path, $"{GetLocaleStr(lang)}.json");
                 if (System.IO.File.Exists(curPath))
                 {
                     var json = System.IO.File.ReadAllText(curPath);

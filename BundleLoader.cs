@@ -20,7 +20,7 @@ namespace RF5.HisaCat.NPCDetails
                 BepInExLog.LogDebug("[BundleLoader] Bundle already loaded");
                 return true;
             }
-            var bundleDir = System.IO.Path.Combine(Paths.PluginPath, BepInExLoader.GUID);
+            var bundleDir = System.IO.Path.Combine(BepInExLoader.GetPluginRootDirectory(), BepInExLoader.GUID);
             var mainBundlePath = System.IO.Path.Combine(bundleDir, "npcdetails.main.unity3d");
             if (System.IO.File.Exists(mainBundlePath) == false)
             {
