@@ -1,5 +1,9 @@
 ﻿# Release notes
 
+## v1.3.1
+- Changed to reference the actual plugin path when loading resources for compatibility with other mods
+- Update localized texts from crowdin (de_DE, zh_CN, zh_TW)
+
 ## v1.3.0
 - Displays Monster brushing or not today.
 - Displays gifts delivered to monster or not today.
