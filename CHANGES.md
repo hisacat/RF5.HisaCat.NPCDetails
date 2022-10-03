@@ -1,5 +1,8 @@
 ﻿# Release notes
 
+## v1.4.0
+- Support Newer version of BepInEx
+
 ## v1.3.1
 - Changed to reference the actual plugin path when loading resources for [compatibility with other mods](https://github.com/hisacat/RF5.HisaCat.NPCDetails/issues/1)
 - Update localized texts from crowdin (de_DE, zh_CN, zh_TW)
