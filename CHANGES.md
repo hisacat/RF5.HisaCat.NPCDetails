@@ -1,7 +1,7 @@
 ﻿# Release notes
 
 ## v1.4.0
-- Support Newer version of BepInEx (.Net 6.0)
+- Support Newer version of BepInEx
 - Migrate Newtonsoft.json to System.Text.Json
 
 ## v1.3.1
