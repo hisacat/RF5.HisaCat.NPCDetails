@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace RF5.HisaCat.NPCDetails.Localization
 {
@@ -59,7 +59,7 @@ namespace RF5.HisaCat.NPCDetails.Localization
             for (int i = 0; i < 3; i++)
                 data.Add($"key{i}", "text");
 
-            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions() { WriteIndented = true });
 
             for (var lang = BootOption.SystemLanguage.English; lang <= BootOption.SystemLanguage.Germen; lang++)
             {
@@ -88,7 +88,7 @@ namespace RF5.HisaCat.NPCDetails.Localization
                 if (System.IO.File.Exists(curPath))
                 {
                     var json = System.IO.File.ReadAllText(curPath);
-                    datas = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                    datas = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
                 }
                 this.dic.Add(lang, datas);
             }

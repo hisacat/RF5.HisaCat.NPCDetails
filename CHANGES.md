@@ -1,7 +1,8 @@
 ﻿# Release notes
 
 ## v1.4.0
-- Support Newer version of BepInEx
+- Support Newer version of BepInEx (.Net 6.0)
+- Migrate Newtonsoft.json to System.Text.Json
 
 ## v1.3.1
 - Changed to reference the actual plugin path when loading resources for [compatibility with other mods](https://github.com/hisacat/RF5.HisaCat.NPCDetails/issues/1)
